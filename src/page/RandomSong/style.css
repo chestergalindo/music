@@ -1,0 +1,64 @@
+.RandomSong__reproduction {
+  background-color: var(--tertiary-color);
+  color: var(--quaternary-color);
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  height: 30vh;
+}
+
+.RandomSong__reproduction img {
+  width: 180px;
+  height: 180px;
+}
+
+.RandomSong__reproduction__pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.RandomSong__reproduction__info {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.RandomSong__reproduction__info h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: end;
+  padding-bottom: 0.5rem;
+}
+
+.RandomSong__reproduction__main {
+  background-color: var(--tertiary-color);
+  color: var(--quaternary-color);
+}
+
+.RandomSong__reproduction__main h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding-left: 1rem;
+}
+
+.RandomSong__reproduction__main strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.RandomSong__reproduction__main__section {
+  padding: 1rem 0;
+}
+
+.RandomSong__reproduction__main__section li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 3rem;
+  padding: 0.2rem 2rem 0.2rem 2rem;
+}
+
+.RandomSong__reproduction__info__secondary {
+  height: 66.5vh;
+  background-color: var(--tertiary-color);
+}

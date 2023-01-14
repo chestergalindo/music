@@ -1,0 +1,10 @@
+.artistList {
+  background-color: var(--principal-color);
+  min-height: calc(100vh - 50px);
+}
+
+.artistList__list {
+  margin-inline: auto;
+  padding-top: 16px;
+  max-width: 2100px;
+}
