@@ -1,20 +1,25 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
-import { IArtistImage } from './index.d';
+import type { IArtistImage } from './index.d';
+import { validateProps } from './validateProps';  
 
-export const ArtistImage = (props: IArtistImage) => (
+export const ArtistImage = (props: IArtistImage) => {
+  validateProps(props);
+  return (
   <div className="imageContainer">
     {props.name ? (
-      <Link to={`/artist/${props.id}`}>
+      <Link data-testid="linkArtist" to={`/artist/${props.id}`}>
         <div
           style={{
             borderRadius: props.isCircle ? '50%' : '',
-            backgroundImage: `url(${props.src})`,
+            backgroundImage: `url(${props.image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundColor: props.isCircle ? '#000' : '',
           }}
           className="imageContainer__image"
+          data-testid='imgArtist'
         />
         <p className="imageContainer__text">{props.name}</p>
       </Link>
@@ -22,4 +27,4 @@ export const ArtistImage = (props: IArtistImage) => (
       <></>
     )}
   </div>
-);
+)};

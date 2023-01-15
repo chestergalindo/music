@@ -1,25 +1,15 @@
-import { useState } from 'react';
 import './style.css';
-import keyBy from 'lodash/keyBy';
-import { useQuery } from 'react-query';
-import { callApi } from '../../utils/callApi';
 import { PortalWithState } from 'react-portal';
 import { FaPlay, FaRandom, FaExternalLinkAlt } from 'react-icons/fa';
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi';
 import { BsPlayCircleFill } from 'react-icons/bs';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
 import { HiDotsVertical } from 'react-icons/hi';
-import { useRandomId } from '../../hooks/useRandomId';
 import { toMinutesAndSeconds } from '../../utils/toMinutesAndSeconds';
+import { PlaySongData } from '../PlaySong/playsongData'; 
 
 export const PlaySong = (props: any) => {
-  const [isOpenListSongs, setIsOpenListSongs] = useState(false);
-  const { data } = useQuery('songs', () => callApi(`albums/${props.id}/songs`));
-
-  const albums = keyBy(data, 'album');
-  const songsOfAlbum = albums[props.id];
-  const { idx, setIdx, setRandomId } = useRandomId(songsOfAlbum?.songs.length);
-
+  const { isOpenListSongs, setIsOpenListSongs, songsOfAlbum, idx, setIdx, setRandomId,} = PlaySongData(props);
   return (
     <PortalWithState closeOnOutsideClick closeOnEsc>
       {({ openPortal, isOpen, portal }) => (

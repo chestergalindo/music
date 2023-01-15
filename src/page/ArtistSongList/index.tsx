@@ -1,29 +1,14 @@
-import { useContext } from 'react';
 import './style.css';
-
-import { useQuery } from 'react-query';
-import keyBy from 'lodash/keyBy';
 import { FaStar } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { ArtistImage } from '../../components/ArtistImage';
 import { PlaySong } from '../PlaySong';
-import { ContextMenu } from '../../hooks/context';
-import { callApi } from '../../utils/callApi';
 import { Loader } from '../../components/Loader';
+import React from 'react';
+import { artistState } from './artistData';
 
 export const ArtistSongList = () => {
-  const { idArtist = 0 } = useParams();
-  const { artistInformation } = useContext(ContextMenu);
-
-  const { data: artistInfo, isLoading } = useQuery('albums', () =>
-    callApi(`artists/${idArtist}/albums`),
-  );
-  const groupedByAlbum = keyBy(artistInfo, 'artist');
-  const artistBasicInfo = keyBy(artistInformation, 'id');
-
-  const albumList = groupedByAlbum[+idArtist]?.albums;
-  const artistData: any = artistBasicInfo[+idArtist];
+  const { albumList, artistData, isLoading } = artistState();
 
   return (
     <>
@@ -37,7 +22,7 @@ export const ArtistSongList = () => {
         <>
           <section className="artistSongList__container">
             <ArtistImage
-              src={artistData?.image}
+              image={artistData?.image}
               name={artistData?.name}
               isCircle
               id={0}

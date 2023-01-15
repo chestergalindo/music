@@ -3,6 +3,9 @@ import './style.css';
 import { ArtistImage } from '../../components/ArtistImage';
 import { GridAlbums } from '../../components/GridAlbums';
 import { ContextMenu } from '../../hooks/context';
+import React from 'react';
+import type { IArtistImage } from '../../components/ArtistImage/index.d';
+
 import { Helmet } from 'react-helmet';
 
 export const ArtistList = () => {
@@ -14,17 +17,17 @@ export const ArtistList = () => {
         <title>Lista de Artistas</title>
         <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
       </Helmet>
-      <div className="artistList__list">
+      <div data-testid="ListArtistas" className="artistList__list">
         <GridAlbums
           isLoading={isLoadingArtistInformation}
           data={artistInformation}
-          renderItem={(artist: any) => (
+          renderItem={(artist: IArtistImage) => (
             <div key={artist.id}>
               <ArtistImage
                 isCircle
                 id={artist.id}
                 name={artist.name}
-                src={artist.image}
+                image={artist.image}
                 alt={artist.name}
                 popularity={artist.popularity}
               />

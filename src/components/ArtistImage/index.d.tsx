@@ -1,7 +1,7 @@
 export interface IArtistImage {
   isCircle: boolean;
   name: string;
-  src: string;
+  image: string;
   id: number;
   alt: string;
   popularity: number;

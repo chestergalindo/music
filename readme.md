@@ -3,7 +3,7 @@
 Template with Vite, React, postcss and typescript.
 
 ### 🚀 Enlaces
- * **First Version:** [page](https://templatevite.netlify.app)
+ * **First Version:** [page](https://musiccesargalindo.netlify.app/)
 
 #### 🛠 Installation of project
 ```
