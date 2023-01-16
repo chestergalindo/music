@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
-import type { IArtistImage } from './index.d';
-import { validateProps } from './validateProps';  
+import type { IArtistImage } from '../../utils/types/IArtistImage.d';
 
 export const ArtistImage = (props: IArtistImage) => {
-  validateProps(props);
   return (
   <div className="imageContainer">
     {props.name ? (

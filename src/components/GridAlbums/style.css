@@ -1,5 +1,6 @@
 .GridAlbums {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  justify-content: center;
   place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
 }
